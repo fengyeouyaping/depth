@@ -331,7 +331,7 @@ export default {
       let center = (this.screenWidth - this.padding[1] - this.padding[3])/2
       
       //处于买盘--处于卖盘--其他情况隐藏
-      if(this.buyDates.length > 0){
+      if(this.buyDates.length > 0 && mouseX < center){
         if(mouseX >= this.buyDates[0]['x'] && mouseX <= this.buyDates[this.buyDates.length-1]['x']){
           for(let i=0;i<this.buyDates.length;i++){
           
@@ -360,8 +360,7 @@ export default {
           return [-9999,0,0,'buy']
         }
         
-      }else if(this.sellDates.length > 0){
-        console.log(mouseX >= this.sellDates[0]['x'] && mouseX <= this.sellDates[this.sellDates.length-1]['x'])
+      }else if(this.sellDates.length > 0 && mouseX > center){
         if(mouseX >= this.sellDates[0]['x'] && mouseX <= this.sellDates[this.sellDates.length-1]['x']){
           for(let i=0;i<this.sellDates.length;i++){
             if(i == 0){
@@ -376,7 +375,7 @@ export default {
               }else if(mouseX > this.sellDates[i-1]['x'] && mouseX < this.sellDates[i]['x']){//处于两个点中间
                 if(this.sellDates[i-1]['y'] == this.sellDates[i]['y']){//处于纵坐标相同的两个点之间
                   return [this.sellDates[i-1]['y'],this.sellDates[i-1]['label'],this.sellDates[i-1]['value'],'sell']
-                }else{
+                }else {
                   return [this.sellDates[i]['y'],this.sellDates[i]['label'],this.sellDates[i]['value'],'sell']
                 }
               }
@@ -582,8 +581,8 @@ export default {
           }
         }
         this.sellDates.push({
-          label:bottomRight.x,
-          value:Number(math.floatSub(origin.y,math.floatMultiply(sellDate[sellDate.length-1]['y'],dishWidthY)))+this.COLOR.lineHeight+1,
+          label:sellDate[sellDate.length-1]['valueX'],
+          value:sellDate[sellDate.length-1]['valueY'],
           x:bottomRight.x,
           y:Number(math.floatSub(origin.y,math.floatMultiply(sellDate[sellDate.length-1]['y'],dishWidthY)))+this.COLOR.lineHeight+1
         })

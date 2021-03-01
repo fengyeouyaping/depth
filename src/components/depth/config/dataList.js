@@ -96,9 +96,14 @@ export default {
         url: this.url,
         data: Qs.stringify(params)
       }).then((result) => {
-        this.dealDate(result.data.result)
+        if(result.success){
+          this.dealDate(result.data.result)
+        }else{
+          this.loadingType = false
+        }
       }).catch((err) => {
         console.log(err)
+        this.loadingType = false
       })
     },
 
@@ -338,10 +343,6 @@ export default {
           }
           
         }
-        // for(let i=0;i<this.sellDate.length;i++){
-        //   console.log(this.sellDate[i],this.sellDate[i]['valueX'],this.sellDate[i]['x'])
-        // }
-        
       }else if(datas.asks.length == 1){
         this.sellDate.push({
           x:Number(datas.asks[0][0]),
