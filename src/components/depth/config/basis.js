@@ -15,7 +15,7 @@ export default {
         {label:'累计',value:'798'},
       ],
       //币对名称
-      coinName:'TCL/USDT',
+      coinName:'BTC/USDT',
       //是否对数据进行优化处理
       isOptimizeData:false,
       //请求数据的地址
