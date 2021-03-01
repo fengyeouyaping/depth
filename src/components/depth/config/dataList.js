@@ -96,7 +96,7 @@ export default {
         url: this.url,
         data: Qs.stringify(params)
       }).then((result) => {
-        if(result.success){
+        if(result.data.success){
           this.dealDate(result.data.result)
         }else{
           this.loadingType = false

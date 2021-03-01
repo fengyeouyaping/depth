@@ -22,8 +22,13 @@ export default {
       url:'http://test.xd.local/api/coin-exchange/v1/exchange/getDepth',
       //容器id
       containerId:'XD-depth',
+
+
+
       //画图数据的倾斜度,取值在0-1
       gradient:0.2,
+      //颜色版本
+      skinVersion:'light',
 
 
 

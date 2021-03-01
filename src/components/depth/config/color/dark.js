@@ -15,7 +15,7 @@ const lists = {
   middleWidth:3,//图中间预留的宽度
 
   tipBgColor:'rgba(0,0,0, 0.8)',//提示框背景色
-  tipBorderColor:'red',//提示框边框颜色
+  tipBorderColor:'rgb(235, 240, 245)',//提示框边框颜色
   tipFontLabelColor:'#FFFFFF',//提示框文字颜色
   tipFontValueColor:'#FFFFFF',//提示框数字颜色
   tipPointBorderColorBuy:'#226e58',//提示框圆点边框颜色  ---暂不支持透明底

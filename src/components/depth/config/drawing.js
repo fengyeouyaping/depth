@@ -5,9 +5,6 @@ import {math} from '../common/math'
 export default {
   data() {
     return {
-      //颜色版本
-      skinVersion:'dark',
-
       //记录创建的style标签
       styleDom:'',
 
